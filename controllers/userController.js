@@ -18,7 +18,7 @@ function login(req, res) {
 
     User.findOne({ usuario: usuario.toLowerCase() }, (err, user) => {
         if (err) {
-            res.status(500).send({ message: "Error al comprobar el usuario" })
+            res.status(500).send({ message: "Error al comprobar el usuario", error: err })
         } else {
             if (user) {
                 bcrypt.compare(password, user.password, (err, check) => {
