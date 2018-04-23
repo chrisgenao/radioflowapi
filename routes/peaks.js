@@ -11,5 +11,6 @@ var md_upload = multipart({ uploadDir: './uploads/users' });
 var api = express.Router();
 
 api.post('/savePeak', peakController.savePeak)
+api.get('/getPeaks', peakController.getPeaks)
 
 module.exports = api;

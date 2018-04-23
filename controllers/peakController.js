@@ -94,8 +94,15 @@ function uploadImage(req, res){
     }
 }
 
+function getPeaks(req, res){
+    Peak.find((err, peaks)=>{
+        res.status(200).send(peaks)
+    })
+}
+
 
 module.exports = {
     savePeak,
-    uploadImage
+    uploadImage,
+    getPeaks
 }

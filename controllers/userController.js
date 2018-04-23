@@ -17,6 +17,8 @@ function login(req, res) {
     var password = params.password;
 
     User.findOne({ usuario: usuario.toLowerCase() }, (err, user) => {
+        console.log(err)
+        console.log(user)
         if (err) {
             res.status(500).send({ message: "Error al comprobar el usuario", error: err })
         } else {
@@ -52,7 +54,7 @@ function register(req, res) {
     var params = req.body;
 
     if (params.password && params.usuario && params.habbo_name && params.role) {
-        user.usuario = params.usuario;
+        user.usuario = params.usuario.toLowerCase();
         user.habbo_name = params.habbo_name;
         user.role = params.role
 
@@ -135,6 +137,17 @@ function getUsers(req, res) {
     })
 }
 
+function getUser(req, res) {
+    let userId = req.params.id
+
+    User.findById(userId, (err, usersFound) => {
+        console.log(usersFound)
+
+        res.status(200).send(usersFound)
+    })
+}
+
+
 function resetUser(req, res) {
 
     let userId = req.params.id
@@ -186,5 +199,6 @@ module.exports = {
     register,
     modifyuser,
     resetUser,
-    deleteUser
+    deleteUser,
+    getUser
 }

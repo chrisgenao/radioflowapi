@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
+var clearPanel = require('./services/clearPanel');
+
 //cargar Rutas.
 var userRoutes = require('./routes/user');
 var panelRoutes = require('./routes/panel');
@@ -15,7 +17,7 @@ var peakRoutes = require('./routes/peaks');
 //Configurar Middlewares de BodyParser.
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.json())
 
 //Configurar el CORS.
 app.use((req, res, next) => {

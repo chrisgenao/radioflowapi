@@ -11,7 +11,7 @@ var peakSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
-        autopopulate: { select: 'habbo_name' }
+        autopopulate: { select: 'habbo_name'}
     },
     cantidad: String
 })

@@ -11,7 +11,7 @@ exports.createToken = function(user){
         habbo_name: user.habbo_name,
         role: user.role,
         iat: moment().unix(),
-        exp: moment().add(30, 'days').unix()
+        exp: moment().add(1, 'hours').unix()
     }
 
     return jwtSimple.encode(payload, secret);

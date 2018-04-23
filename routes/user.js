@@ -16,4 +16,5 @@ api.put('/modifyuser/:id', userController.modifyuser)
 api.get('/getusers', userController.getUsers)
 api.put('/resetuser/:id', userController.resetUser)
 api.delete('/resetuser/:id', userController.deleteUser)
+api.get('/getuser/:id', userController.getUser)
 module.exports = api;
